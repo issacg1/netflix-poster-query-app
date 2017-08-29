@@ -1,0 +1,33 @@
+{
+  "name": "netflix-poster-query",
+  "version": "1.0.0",
+  "description": "netflix-poster-query-app",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/issacg1/netflix-poster-query-app.git"
+  },
+  "author": "Issac Grunwald",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/issacg1/netflix-poster-query-app/issues"
+  },
+  "homepage": "https://github.com/issacg1/netflix-poster-query-app#readme",
+  "devDependencies": {
+    "nodemon": "^1.11.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2",
+    "path": "^0.12.7",
+    "pg-promise": "^6.5.1"
+  }
+}
