@@ -21,7 +21,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
 
-
+// const to_doRoutes = require('./routes/to-do-routes');
+// app.use('/toDo', to_doRoutes);
 
 app.get('/', (req, res) => {
   res.render('index');
