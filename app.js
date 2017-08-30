@@ -21,8 +21,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(logger('dev'));
 app.use(methodOverride('_method'));
 
-// const to_doRoutes = require('./routes/to-do-routes');
-// app.use('/toDo', to_doRoutes);
+const titleRoutes = require('./routes/title-routes');
+app.use('/search-title', titleRoutes);
+
+const directorRoutes = require('./routes/director-routes');
+app.use('/search-director', directorRoutes);
+
+const actorRoutes = require('./routes/actor-routes');
+app.use('/search-actor', actorRoutes);
 
 app.get('/', (req, res) => {
   res.render('index');

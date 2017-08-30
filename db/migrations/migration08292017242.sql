@@ -5,4 +5,4 @@ CREATE TABLE comments(
   comment TEXT,
   username VARCHAR(255),
   title VARCHAR(200)
-)
+);
