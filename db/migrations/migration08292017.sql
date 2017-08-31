@@ -1,5 +1,6 @@
 \c netflix
 
+DROP TABLE movies;
 CREATE TABLE movies(
   id SERIAL PRIMARY KEY,
   title VARCHAR(200),
@@ -9,5 +10,6 @@ CREATE TABLE movies(
   actors TEXT,
   director VARCHAR(100),
   summary TEXT,
-  runtime VARCHAR (20)
+  runtime VARCHAR(20),
+  show_id INTEGER
 );
