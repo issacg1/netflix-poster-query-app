@@ -1,6 +1,7 @@
 const db = require('../db/config');
 
 const movies = {};
+const comments = {};
 
 movies.findAll = () =>{
   db.query(
@@ -26,3 +27,4 @@ movies.new = movie =>{
 
 
 module.exports = movies;
+module.exports = comments;

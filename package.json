@@ -30,6 +30,7 @@
     "method-override": "^2.3.9",
     "morgan": "^1.8.2",
     "path": "^0.12.7",
-    "pg-promise": "^6.5.1"
+    "pg-promise": "^6.5.1",
+    "query-string": "^5.0.0"
   }
 }
