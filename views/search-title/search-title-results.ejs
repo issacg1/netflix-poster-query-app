@@ -1,17 +1,36 @@
 <% include ../partials/boilerplate %>
+<% include ../partials/nav %>
 
-<h1>Your results for Title: <%=results.show_title%> Year: <%=results.release_year%></h1>
+<h1>Your results for Title: <%=results.show_title%></h1>
 
-<div>
-<p>Title: <%=results.show_title%></p>
-<p>Release Year: <%=results.release_year%></p>
-<p>Rating: <%=results.rating%></p>
-<p>Category: <%=results.category%></p>
-<p>Show Cast: <%=results.show_cast%></p>
-<p>Director: <%=results.director%></p>
-<p>Summary: <%=results.summary%></p>
-<p>Runtime: <%=results.runtime%></p>
-</div>
+<% if(Object.keys(results).length > 2){ %>
+  <div id='results'>
+    <p>Title: <%=results.show_title%></p>
+    <p>Release Year: <%=results.release_year%></p>
+    <p>Rating: <%=results.rating%></p>
+    <p>Category: <%=results.category%></p>
+    <p>Show Cast: <%=results.show_cast%></p>
+    <p>Director: <%=results.director%></p>
+    <p>Summary: <%=results.summary%></p>
+    <p>Runtime: <%=results.runtime%></p>
+    <p>Movie Id: <%=results.show_id%></p>
+    <button type="button" id="saveTitle">Save to my profile</button>
+    <form action="/comments" method="post">
+      <input type="hidden" value="<%=results.show_id%>" name="show_id" />
+      <input type="submit" value="View All Comments" name="View All Comments" />
+    </form>
+    <div class="newComment">
+      <form action="/comments/new" method="post">
+        <textarea name="comment" placeholder="Add a new comment here"></textarea>
+        <input type="submit" name="submit" value="submit" />
+      </form>
+    </div>
+  </div>
+<% } else { %>
+<p><%= results.message %></p>
+<a href="/search-title">Try a different search?</a>
+<% } %>
+
 
 <% include ../partials/footer%>
 <% include ../partials/end%>

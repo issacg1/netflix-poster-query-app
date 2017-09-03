@@ -1,0 +1,20 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+
+<h1> Director: <%=results.director%> Title: <%=results.show_title%></h1>
+<div>
+<p>Title: <%=results.show_title%></p>
+<p>Release Year: <%=results.release_year%></p>
+<p>Rating: <%=results.rating%></p>
+<p>Category: <%=results.category%></p>
+<p>Show Cast: <%=results.show_cast%></p>
+<p>Director: <%=results.director%></p>
+<p>Summary: <%=results.summary%></p>
+<p>Runtime: <%=results.runtime%></p>
+<p>Movie Id: <%=results.show_id%></p>
+<button type="button" id="saveDirector">Save to my profile</button>
+</div>
+
+
+<% include ../partials/footer%>
+<% include ../partials/end%>

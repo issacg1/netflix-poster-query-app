@@ -2,6 +2,7 @@
 
 DROP TABLE relationship;
 CREATE TABLE relationship(
-  movie_id INTEGER REFERENCES movies(id),
-  user_id INTEGER REFERENCES users(id)
+  movie_id INTEGER,
+  user_id INTEGER,
+  timestamp timestamp default current_timestamp
 )

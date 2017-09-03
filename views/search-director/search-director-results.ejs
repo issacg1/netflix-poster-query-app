@@ -1,0 +1,26 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+
+<h1>Your results for Director: <%=results.director%></h1>
+
+<% if(Object.keys(results).length > 2){ %>
+  <% results.forEach(function (results){ %>
+    <div id='results'>
+    <p>Title: <%=results.show_title%></p>
+    <p>Release Year: <%=results.release_year%></p>
+    <p>Rating: <%=results.rating%></p>
+    <p>Category: <%=results.category%></p>
+    <form action="/search-director/results/view-more" method="post">
+    <input type="hidden" value="<%=results.show_title%>" name="title" />
+    <input type="submit" name="submit" value="View More!" />
+    </form>
+    </div>
+  <% }) %>
+<% } else { %>
+    <p><%= results.message %></p>
+    <a href="/search-title">Try a different search?</a>
+<% } %>
+
+
+<% include ../partials/footer%>
+<% include ../partials/end%>

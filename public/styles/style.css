@@ -1,7 +1,20 @@
 body{
-  background-color: red;
+  background-color: rgb(240, 88, 92);
 }
 
+.navContain{
+  height: 20vh;
+  width: 100vw;
+}
+.logo{
+  height: 15vh;
+}
+
+.navLinkContain{
+  float: right;
+  display: inline-flex;
+  margin-left: 10px;
+}
 .footer{
   height: 10vh;
   width: 100vw;

@@ -1,0 +1,13 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+
+<% comments.forEach(function(comments){ %>
+  <div class="comments" id="comments">
+    <p><%comments.comment%></p>
+  </div>
+<% }) %>
+
+
+
+<% include ../partials/footer%>
+<% include ../partials/end%>

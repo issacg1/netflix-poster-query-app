@@ -1,30 +1,33 @@
 const db = require('../db/config');
 
 const movies = {};
-const comments = {};
 
 movies.findAll = () =>{
-  db.query(
+  return db.query(
     'SELECT * FROM movie RETURNING *'
   );
 };
 
 movies.findById = id =>{
-  db.one(
-    `SELECT * FROM movies WHERE id =$1 RETURNING *`, [id]
+  return db.one(
+    `SELECT * FROM movies WHERE id = $1 RETURNING *`, [id]
   );
 };
 
 movies.new = movie =>{
-  db.one(`
+  return db.one(`
     INSERT INTO movies
-    (title, year, rating, category, actors, director, summary, runtime)
+    (title, year, rating, category, actors, director, summary, runtime, show_id)
     VALUES
-    ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
-    [movie.title, movie.year, movie.rating, movie.category, movie.actors, movie.director, movie.summary, movie.runtime]
+    ($1, $2, $3, $4, $5, $6, $7, $8, $9) RETURNING *`,
+    [movie.title, movie.year, movie.rating, movie.category, movie.actors, movie.director, movie.summary, movie.runtime, movie.show_id]
   );
+}
+
+movies.findByShowId = show_id =>{
+  return db.query(`SELECT * FROM movies WHERE show_id = $1`, [show_id]);
 }
 
 
 module.exports = movies;
-module.exports = comments;
+

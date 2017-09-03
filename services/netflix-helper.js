@@ -1,11 +1,11 @@
 require('isomorphic-fetch');
 require('dotenv').config();
 
-//add fetch function for api
 //add the function to the correct route
 function getMovieByTitleAndYear(req, res, next){
   let title = req.body.title.split(' ').join('%20');
-  fetch(`http://netflixroulette.net/api/api.php?title=${title}&year=${req.body.year}`)
+  console.log(title)
+  fetch(`http://netflixroulette.net/api/api.php?title=${title}`)
     .then(fetchRez => fetchRez.json())
     .then(titleResults => {
       res.locals.titleResults = titleResults;
@@ -21,7 +21,7 @@ function getMovieByDirector(req, res, next){
   fetch(`http://netflixroulette.net/api/api.php?director=${director}`)
     .then(fetchRez => fetchRez.json())
     .then(directorResults => {
-      res.locals.titleResults = directorResults;
+      res.locals.directorResults = directorResults;
       next();
     }).catch(err =>{
       console.log(err);
@@ -34,7 +34,7 @@ function getMovieByActor(req, res, next){
   fetch(`http://netflixroulette.net/api/api.php?actor=${actor}`)
     .then(fetchRez => fetchRez.json())
     .then(actorResults => {
-      res.locals.titleResults = actorResults;
+      res.locals.actorResults = actorResults;
       next();
     }).catch(err =>{
       console.log(err);
