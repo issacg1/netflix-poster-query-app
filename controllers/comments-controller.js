@@ -15,4 +15,12 @@ commentsControllers.show = (req, res) =>{
   })
 }
 
+commentsControllers.new = (req, res, next) =>{
+  comments.create({
+    comment: req.body.comment,
+    user_id: req.user.id,
+    show_id: req.body.show_id
+  })
+}
+
 module.exports = commentsControllers;

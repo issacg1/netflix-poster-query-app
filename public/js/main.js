@@ -38,7 +38,7 @@ $(document).ready(function(){
   });
 
   $('#saveDirector').click(function(event) {
-    let target = event.target.parentElement.children;
+   let target = event.target.parentElement.children;
    $.ajax({
     method: "POST",
     url: '/search-director/save',
@@ -61,5 +61,22 @@ $(document).ready(function(){
     console.log(err)
    })
   });
+
+  $('#commentButton').click(function(event){
+    $.ajax({
+    method: "POST",
+    url: '/comments/new',
+    data: {
+        "comment": $('#textarea').val(),
+        "show_id": $('#show_id').val()
+    },
+    success: function (){
+    $('#newCommentForm').hide();
+    $('#newComment').append("<p>Your comment has been submitted.</p>");
+    }
+  }).catch((err) => {
+    console.log(err)
+   })
+  })
 
 });

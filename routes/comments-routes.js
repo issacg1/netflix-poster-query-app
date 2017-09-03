@@ -7,7 +7,7 @@ const authHelpers = require('../services/auth/auth-helpers');
 
 
 commentsRoutes.post('/', commentsControllers.show);
-// commentsRoutes.post('/new');
+commentsRoutes.post('/new', authHelpers.loginRequired, commentsControllers.new);
 // commentsControllers.get('/edit');
 
 

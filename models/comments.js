@@ -11,6 +11,13 @@ comments.findSpecificMovieComments = (show_id) =>{
     [show_id])
 };
 
+comments.create = (comment) =>{
+  return db.none(`
+    INSERT INTO comments
+    (comment, user_id, show_id)
+    VALUES ($1, $2, $3)`,
+    [comment.comment, comment.user_id, comment.show_id])
+}
 //add create comment function
 
 
