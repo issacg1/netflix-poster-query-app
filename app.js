@@ -33,6 +33,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+app.use((req, res, next) => {
+  res.locals.user = req.user || null;
+  next();
+});
+
 const titleRoutes = require('./routes/title-routes');
 app.use('/search-title', titleRoutes);
 
@@ -50,6 +55,9 @@ app.use('/user', userRoutes);
 
 const commentsRoutes = require('./routes/comments-routes');
 app.use('/comments', commentsRoutes);
+
+const profileRoutes = require('./routes/profile-routes');
+app.use('/profile', profileRoutes);
 
 app.get('/about', (req, res) => {
   res.render('about');

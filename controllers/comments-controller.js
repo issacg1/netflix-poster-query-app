@@ -12,7 +12,13 @@ commentsControllers.show = (req, res) =>{
       res.render('comments/comments-show', {
         comments: comments
     })
-  })
+  }).catch(err => {
+        console.log(err);
+        res.status(500).json({
+          message: 'Page Not Found',
+          error: err
+        });
+    });
 }
 
 commentsControllers.new = (req, res, next) =>{
@@ -20,7 +26,15 @@ commentsControllers.new = (req, res, next) =>{
     comment: req.body.comment,
     user_id: req.user.id,
     show_id: req.body.show_id
-  })
+  }).then(()=>{
+    res.end()
+  }).catch(err => {
+        console.log(err);
+        res.status(500).json({
+          message: 'Page Not Found',
+          error: err
+        });
+    });
 }
 
 module.exports = commentsControllers;

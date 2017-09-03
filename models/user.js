@@ -11,7 +11,6 @@ User.findByUserName = userName => {
 };
 
 User.create = user => {
-  console.log(user)
   return db.one(
     `INSERT INTO users
     (first_name, last_name, email, username, password_digest)

@@ -1,0 +1,35 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+
+<h1>Welcome back <%=user.first_name%></h1>
+
+<h2>Your Saved Movies</h2>
+<!-- add an if statment that confirms saved movies else go to / -->
+<div class="userMovies">
+<% if(Object.keys(comments).length > 1){ %>
+  <% comments.forEach(function(comments){ %>
+    <p><%=comments.comment%></p>
+    <!-- add movie id -->
+  <% }) %>
+<% } else { %>
+  <p>You don't have any saved movies.</p>
+  <a href="/">Start a search here</a>
+<%}%>
+</div>
+
+<h2>Your comments</h2>
+<!-- add an if statment that confirms saved comments else go to / -->
+<div class="userComments">
+<% if(Object.keys(comments).length > 1){ %>
+  <% comments.forEach(function(comments){ %>
+    <p><%=comments.comment%></p>
+    <!-- add movie id -->
+  <% }) %>
+<% } else { %>
+  <p>You don't have any saved movies.</p>
+  <a href="/">Start a search here</a>
+<%}%>
+</div>
+
+<% include ../partials/footer%>
+<% include ../partials/end%>

@@ -30,6 +30,7 @@ function getMovieByDirector(req, res, next){
 }
 
 function getMovieByActor(req, res, next){
+  console.log(req.body.actor)
   let actor = req.body.actor.split(' ').join('%20');
   fetch(`http://netflixroulette.net/api/api.php?actor=${actor}`)
     .then(fetchRez => fetchRez.json())

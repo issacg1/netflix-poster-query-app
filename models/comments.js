@@ -18,7 +18,15 @@ comments.create = (comment) =>{
     VALUES ($1, $2, $3)`,
     [comment.comment, comment.user_id, comment.show_id])
 }
-//add create comment function
 
+//comments.edit
+
+comments.findUserComments = (user_id) =>{
+  return db.query(`
+    SELECT * FROM comments
+    JOIN users ON users.id = comments.user_id
+    WHERE users.id = $1`,
+    [user_id])
+}
 
 module.exports = comments;

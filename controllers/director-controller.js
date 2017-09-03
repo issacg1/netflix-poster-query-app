@@ -11,10 +11,8 @@ directorControllers.index = (req, res) =>{
 };
 
 directorControllers.results = (req, res) =>{
-  //create a db query for all comments related to this movie
   res.render('search-director/search-director-results', {
     results: res.locals.directorResults,
-    //comments:
   })
 }
 
@@ -57,10 +55,17 @@ directorControllers.new = (req, res, next) =>{
 
 
 directorControllers.insert = (req, res) =>{
-  console.log(req.user.id)
-  console.log(req.body.show_id)
   relationship.insert(req.body.show_id, req.user.id)
-}
+  .then(()=>{
+      res.end()
+    }).catch(err => {
+        console.log(err);
+        res.status(500).json({
+          message: 'Page Not Found',
+          error: err
+        });
+    });
+  }
 
 directorControllers.view = (req, res) =>{
    res.render('search-director/search-director-single', {

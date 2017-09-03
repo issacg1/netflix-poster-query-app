@@ -1,0 +1,30 @@
+<% include ../partials/boilerplate %>
+<% include ../partials/nav %>
+
+<h1> Actor: <%=results.director%> Title: <%=results.show_title%></h1>
+<div>
+  <p>Title: <%=results.show_title%></p>
+  <p>Release Year: <%=results.release_year%></p>
+  <p>Rating: <%=results.rating%></p>
+  <p>Category: <%=results.category%></p>
+  <p>Show Cast: <%=results.show_cast%></p>
+  <p>Director: <%=results.director%></p>
+  <p>Summary: <%=results.summary%></p>
+  <p>Runtime: <%=results.runtime%></p>
+  <p>Movie Id: <%=results.show_id%></p>
+  <button type="button" id="saveActor">Save to my profile</button>
+  <form action="/comments" method="post">
+    <input type="hidden" value="<%=results.show_id%>" name="show_id" />
+    <input type="submit" value="View All Comments" name="View All Comments" />
+  </form>
+  <div class="newComment">
+    <form action="/comments/new" method="post" id="newCommentForm">
+      <input type="hidden" name="show_id" value="<%=results.show_id%>" id="show_id" />
+      <textarea name="comment" placeholder="Add a new comment here" id="textarea"></textarea>
+      <input type="button" name="button" value="submit" id="commentButton" />
+    </form>
+  </div>
+</div>
+
+<% include ../partials/footer%>
+<% include ../partials/end%>

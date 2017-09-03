@@ -55,9 +55,16 @@ titleControllers.new = (req, res, next) =>{
 
 
 titleControllers.insert = (req, res) =>{
-  console.log(req.user.id)
-  console.log(req.body.show_id)
   relationship.insert(req.body.show_id, req.user.id)
+  .then(()=>{
+    res.end()
+  }).catch(err => {
+        console.log(err);
+        res.status(500).json({
+          message: 'Page Not Found',
+          error: err
+        });
+    });
 }
 
 module.exports = titleControllers;

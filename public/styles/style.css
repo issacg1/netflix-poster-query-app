@@ -21,3 +21,16 @@ body{
   position: fixed;
   bottom: 0;
 }
+
+.userMovies{
+  width: 600px;
+  height: 100px;
+  overflow: scroll;
+  margin-bottom: 5%;
+}
+
+.userComments{
+  width: 600px;
+  height: 100px;
+  overflow: scroll;
+}
