@@ -22,5 +22,16 @@ profileControllers.userComments = (req, res, next) =>{
     })
 }
 
+profileControllers.userMovies = (req, res, next) =>{
+  movies.findUserMovies(req.user.id)
+  .then(movies =>{
+    res.locals.movies = movies;
+    next();
+  }).catch(err =>{
+      console.log(err);
+      next();
+    })
+}
+
 //create controller to search for all
 module.exports = profileControllers;

@@ -37,4 +37,36 @@ commentsControllers.new = (req, res, next) =>{
     });
 }
 
+commentsControllers.edit = (req, res) => {
+  comments.findById(req.body.id)
+  .then(comments => {
+    res.render("comments/comments-edit", {
+      comment: comments
+    })
+  })
+  .catch(err =>{
+    console.log(err);
+    res.status(500).json({
+      message: 'Page Not Found',
+      error: err
+    });
+  });
+};
+
+commentsControllers.update = (req, res)=>{
+    comments.update(req.body.comment_id, {
+    comment: req.body.comment
+  })
+  .then(comment =>{
+    res.redirect(`/profile`);
+  })
+  .catch(err =>{
+    console.log(err);
+    res.status(500).json({
+      message: 'Page Not Found',
+      error: err
+    });
+  });
+}
+
 module.exports = commentsControllers;

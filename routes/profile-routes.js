@@ -6,7 +6,7 @@ const relationship = require('../controllers/title-controller');
 const authHelpers = require('../services/auth/auth-helpers');
 const profileControllers = require('../controllers/profile-controllers')
 
-profileRoutes.get('/', authHelpers.loginRequired, profileControllers.userComments, profileControllers.index);
+profileRoutes.get('/', authHelpers.loginRequired, profileControllers.userComments, profileControllers.userMovies, profileControllers.index);
 
 
 module.exports = profileRoutes;

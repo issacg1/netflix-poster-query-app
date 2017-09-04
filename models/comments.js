@@ -23,10 +23,26 @@ comments.create = (comment) =>{
 
 comments.findUserComments = (user_id) =>{
   return db.query(`
-    SELECT * FROM comments
+    SELECT comments.comment, comments.id FROM comments
     JOIN users ON users.id = comments.user_id
     WHERE users.id = $1`,
     [user_id])
+}
+
+comments.findById = (id) => {
+  return db.one(`
+    SELECT * FROM comments
+    WHERE id = $1`,
+    [id])
+}
+
+comments.update = (id, comment)=>{
+  return db.one(`
+    UPDATE comments SET
+    comment = $1
+    WHERE id = $2
+    RETURNING *`,
+    [comment.comment, id])
 }
 
 module.exports = comments;

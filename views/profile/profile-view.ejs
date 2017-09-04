@@ -6,10 +6,13 @@
 <h2>Your Saved Movies</h2>
 <!-- add an if statment that confirms saved movies else go to / -->
 <div class="userMovies">
-<% if(Object.keys(comments).length > 1){ %>
-  <% comments.forEach(function(comments){ %>
-    <p><%=comments.comment%></p>
-    <!-- add movie id -->
+<% if(Object.keys(movies).length > 1){ %>
+  <% movies.forEach(function(movies){ %>
+    <p><%=movies.title%></p>
+    <form action="/search-director/results/view-more" method="post">
+    <input type="hidden" value="<%=movies.title%>" name="title" />
+    <input type="submit" name="submit" value="View This movie!" />
+    </form>
   <% }) %>
 <% } else { %>
   <p>You don't have any saved movies.</p>
@@ -18,17 +21,19 @@
 </div>
 
 <h2>Your comments</h2>
-<!-- add an if statment that confirms saved comments else go to / -->
 <div class="userComments">
 <% if(Object.keys(comments).length > 1){ %>
   <% comments.forEach(function(comments){ %>
     <p><%=comments.comment%></p>
-    <!-- add movie id -->
+    <form action="/comments/edit" method="post">
+    <input type="hidden" name="id" value="<%=comments.id%>" />
+    <input type="submit" value="Edit this commment" />
+    </form>
   <% }) %>
 <% } else { %>
-  <p>You don't have any saved movies.</p>
-  <a href="/">Start a search here</a>
-<%}%>
+  <p>You don't have any comment.</p>
+  <a href="/">Start a search here and then add your comments</a>
+<% } %>
 </div>
 
 <% include ../partials/footer%>

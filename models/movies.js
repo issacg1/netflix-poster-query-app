@@ -28,6 +28,15 @@ movies.findByShowId = show_id =>{
   return db.query(`SELECT * FROM movies WHERE show_id = $1`, [show_id]);
 }
 
+movies.findUserMovies = user_id =>{
+  return db.query(`
+    SELECT * FROM movies
+    JOIN relationship ON relationship.movie_id = movies.show_id
+    JOIN users ON users.id = relationship.user_id
+    WHERE users.id = $1`,
+    [user_id])
+}
+
 
 module.exports = movies;
 
