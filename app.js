@@ -68,7 +68,5 @@ app.get('/', (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  res.status(404).json({
-    message: 'Invalid route!',
-  });
+  res.render('404error');
 });
