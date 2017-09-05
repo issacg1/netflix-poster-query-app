@@ -1,18 +1,21 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav %>
 
-<h1>Welcome back <%=user.first_name%></h1>
+<h1 class="indexHeaderCopy">Welcome back <%=user.first_name%></h1>
 
-<h2>Your Saved Movies</h2>
+<h2 class="profileMovieCopy">Your Saved Movies</h2>
+<h2 class="profileCommentsCopy">Your comments</h2>
+<div style="clear:both;"></div>
 <!-- add an if statment that confirms saved movies else go to / -->
 <div class="userMovies">
 <% if(Object.keys(movies).length > 1){ %>
   <% movies.forEach(function(movies){ %>
-    <p><%=movies.title%></p>
+    <p><span>Title:</span> <%=movies.title%></p>
     <form action="/search-director/results/view-more" method="post">
     <input type="hidden" value="<%=movies.title%>" name="title" />
-    <input type="submit" name="submit" value="View This movie!" />
+    <input class="button1" type="submit" name="submit" value="View This movie!" />
     </form>
+    <hr>
   <% }) %>
 <% } else { %>
   <p>You don't have any saved movies.</p>
@@ -20,15 +23,16 @@
 <%}%>
 </div>
 
-<h2>Your comments</h2>
+
 <div class="userComments">
 <% if(Object.keys(comments).length > 1){ %>
   <% comments.forEach(function(comments){ %>
-    <p><%=comments.comment%></p>
+    <p><span>comment:</span> <%=comments.comment%></p>
     <form action="/comments/edit" method="post">
     <input type="hidden" name="id" value="<%=comments.id%>" />
-    <input type="submit" value="Edit this commment" />
+    <input class="button1" type="submit" value="Edit this commment" />
     </form>
+    <hr>
   <% }) %>
 <% } else { %>
   <p>You don't have any comment.</p>

@@ -98,7 +98,7 @@ $(document).ready(function(){
     success: function (){
     $('#newCommentForm').hide();
     //correct the below append
-    $('#newComment').append("<p>Your comment has been submitted.</p>");
+    $('#confirmationCopy').text("Your comment has been submitted.");
     }
   }).catch((err) => {
     console.log(err)

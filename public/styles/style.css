@@ -443,14 +443,41 @@ span{
   margin-bottom: 2%;
 }
 .userMovies{
-  width: 600px;
-  height: 100px;
+  width: 40vw;
+  height: 40vh;
   overflow: scroll;
-  margin-bottom: 5%;
+  float: left;
+  margin-right: 5%;
+  border: 5px solid black;
+  padding-top: .5%;
+  padding-left: .5%;
+  margin-left: 5%;
+
 }
 
 .userComments{
-  width: 600px;
-  height: 100px;
+  width: 40vw;
+  height: 40vh;
   overflow: scroll;
+  float: right;
+  border: 5px solid black;
+  padding-top: .5%;
+  padding-left: .5%;
+  margin-right: 5%;
+}
+
+.profileMovieCopy{
+  float: left;
+  width: 50%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 110%;
+}
+
+.profileCommentsCopy{
+  float: right;
+  width: 50%;
+  text-align: center;
+  font-weight: bold;
+  font-size: 120%;
 }
