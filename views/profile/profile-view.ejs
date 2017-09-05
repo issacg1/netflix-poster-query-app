@@ -2,11 +2,13 @@
 <% include ../partials/nav %>
 
 <h1 class="indexHeaderCopy">Welcome back <%=user.first_name%></h1>
-
+<div class="logout">
+<a href="/auth/logout" class="button1">Logout!</a>
+</div>
 <h2 class="profileMovieCopy">Your Saved Movies</h2>
 <h2 class="profileCommentsCopy">Your comments</h2>
 <div style="clear:both;"></div>
-<!-- add an if statment that confirms saved movies else go to / -->
+
 <div class="userMovies">
 <% if(Object.keys(movies).length > 1){ %>
   <% movies.forEach(function(movies){ %>
@@ -19,7 +21,7 @@
   <% }) %>
 <% } else { %>
   <p>You don't have any saved movies.</p>
-  <a href="/">Start a search here</a>
+  <a class="button1" href="/">Start a search here</a>
 <%}%>
 </div>
 
@@ -36,7 +38,7 @@
   <% }) %>
 <% } else { %>
   <p>You don't have any comment.</p>
-  <a href="/">Start a search here and then add your comments</a>
+  <a class="button1" href="/">Start a search here and then add your comments</a>
 <% } %>
 </div>
 
