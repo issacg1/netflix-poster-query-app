@@ -1,5 +1,3 @@
-\c netflix
-
 DROP TABLE movies;
 CREATE TABLE movies(
   id SERIAL PRIMARY KEY,

@@ -1,5 +1,3 @@
-\c netflix;
-
 DROP TABLE relationship;
 CREATE TABLE relationship(
   movie_id INTEGER,
