@@ -481,3 +481,10 @@ span{
   font-weight: bold;
   font-size: 120%;
 }
+
+.aboutCopy{
+  text-align: center;
+  width: 50vw;
+  margin-left: 25%;
+  font-size: 140%;
+}

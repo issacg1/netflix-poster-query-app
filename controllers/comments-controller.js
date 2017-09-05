@@ -69,4 +69,17 @@ commentsControllers.update = (req, res)=>{
   });
 }
 
+commentsControllers.delete = (req, res) =>{
+  comments.destroy(req.body.comment_id)
+  .then(comment =>{
+    res.redirect(`/profile`);
+  }).catch(err =>{
+    console.log(err);
+    res.status(500).json({
+      message: 'Page Not Found',
+      error: err
+    });
+  });
+}
+
 module.exports = commentsControllers;

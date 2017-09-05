@@ -45,4 +45,11 @@ comments.update = (id, comment)=>{
     [comment.comment, id])
 }
 
+comments.destroy = (id) => {
+  return db.none(`
+    DELETE FROM comments
+    WHERE id = $1`,
+     [id]);
+};
+
 module.exports = comments;
