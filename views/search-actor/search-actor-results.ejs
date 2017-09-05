@@ -1,24 +1,26 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav %>
 
-<h1>Your results for Director: <%=results.director%></h1>
+<h1 class="resultsHeaderCopy">Your results:</h1>
 
 <% if(Object.keys(results).length > 2){ %>
   <% results.forEach(function (results){ %>
-    <div id='results'>
-    <p>Title: <%=results.show_title%></p>
-    <p>Release Year: <%=results.release_year%></p>
-    <p>Rating: <%=results.rating%></p>
-    <p>Category: <%=results.category%></p>
-    <form action="/search-actor/results/view-more" method="post">
-    <input type="hidden" value="<%=results.show_title%>" name="title" />
-    <input type="submit" name="submit" value="View More!" />
-    </form>
+    <div id='results' class="multipleResultsContain">
+        <p><span>Title:</span> <%=results.show_title%></p>
+        <p><span>Release Year:</span> <%=results.release_year%></p>
+        <p><span>Rating:</span> <%=results.rating%></p>
+        <p><span>Category:</span> <%=results.category%></p>
+        <form action="/search-actor/results/view-more" method="post">
+        <input type="hidden" value="<%=results.show_title%>" name="title" />
+        <input class="button1" type="submit" name="submit" value="View More!" />
+        </form>
     </div>
   <% }) %>
 <% } else { %>
-    <p><%= results.message %></p>
-    <a href="/search-title">Try a different search?</a>
+    <p class="resultsHeaderCopy"><%= results.message %></p>
+    <div class="returnButton">
+    <a class="button" href="/search-title">Try a different search?</a>
+    </div>
 <% } %>
 
 

@@ -1,10 +1,10 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav %>
 
-<h1>Search by Leading Actor</h1>
-<form action="/search-director/results" method="post">
-  <input type="text" name="director" placeholder="Director Name" />
-  <input type="submit" name="submit" value="submit" />
+<h1 class="searchHeaderCopy">Search by Director</h1>
+<form class="searchForm" action="/search-director/results" method="post">
+  <input class="searchField" type="text" name="director" placeholder="Director Name" />
+  <input class="button" type="submit" name="submit" value="submit" />
 </form>
 
 <% include ../partials/footer%>

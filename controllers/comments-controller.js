@@ -10,7 +10,7 @@ commentsControllers.show = (req, res) =>{
   .then(comments => {
     console.log(comments)
       res.render('comments/comments-show', {
-        comments: comments
+        comments: comments,
     })
   }).catch(err => {
         console.log(err);

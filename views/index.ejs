@@ -1,19 +1,30 @@
 <% include partials/boilerplate %>
 <% include partials/nav %>
 
-<h1>Welcome to the Netflix <br/> & <br/> Poster Query</h1>
+<h1 class="indexHeaderCopy">Welcome to the Netflix Query</h1>
 
-<div class="titleSearch">
-  <a href="/search-title/">Search by Title</a>
+<div class="searchOptionsContain">
+
+  <a href="/search-title/">
+  <div class="titleSearch">
+    <p>Search by Title</p>
+  </div>
+  </a>
+  <a href="/search-director/">
+    <div class="directorSearch">
+      <p>Search by Director</p>
+    </div>
+  </a>
+
+  <a href="/search-actor/">
+  <div class="actorSearch">
+    <p>Search by leading actor</p>
+  </div>
+  </a>
+
+  <div class="empty">
+  <p>Just for style</p>
+  </div>
 </div>
-
-<div class="directorSearch">
-  <a href="/search-director/">Search by Director</a>
-</div>
-
-<div class="actorSearch">
-  <a href="/search-actor/">Search by leading actor</a>
-</div>
-
 <% include partials/footer%>
 <% include partials/end%>

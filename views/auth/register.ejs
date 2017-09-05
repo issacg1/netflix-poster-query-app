@@ -1,14 +1,17 @@
 <% include ../partials/boilerplate %>
+<% include ../partials/nav %>
 
-<div>
-  <form method='POST' action='/auth/register'>
-    <input name='first_name' type='text' placeholder='First Name' required />
-    <input name='last_name' type='text' placeholder='Last Name' required />
-    <input name='username' type='text' placeholder='username' required />
-    <input name='email' type='email' placeholder='email' required />
-    <input name='password' type='password' placeholder='password' required />
-    <input type='submit' value='Register!' />
+<h1 class="registerCopy">Register for an account</h1>
+<div class="registerContain">
+  <form method='POST' action='/auth/register' class="registerForm">
+    <input class="registerInputs size" name='first_name' type='text' placeholder='First Name' required />
+    <input class="registerInputs size" name='last_name' type='text' placeholder='Last Name' required />
+    <input class="registerInputs size" name='username' type='text' placeholder='username' required />
+    <input class="registerInputs size" name='email' type='email' placeholder='email' required />
+    <input class="registerInputs size" name='password' type='password' placeholder='password' required />
+    <input type='submit' value='Register!' class="button" />
   </form>
 </div>
 
-<% include ../partials/end %>
+<% include ../partials/footer%>
+<% include ../partials/end%>

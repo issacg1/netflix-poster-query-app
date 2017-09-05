@@ -1,11 +1,16 @@
 <% include ../partials/boilerplate %>
+<% include ../partials/nav %>
 
+<h1 class="loginCopy">Login to your account</h1>
 <div>
-  <form method='POST' action='/auth/login'>
-    <input name='username' type='text' placeholder='username' required />
-    <input name='password' type='password' placeholder='password' required />
-    <input type='submit' value='Log in!' />
+  <form method='POST' action='/auth/login' class="loginForm">
+    <input class="input" name='username' type='text' placeholder='username' required />
+    <input class="input" name='password' type='password' placeholder='password' required />
+    <input type='submit' value='Log in!' class="button" />
+    <p class="accountCopy">Don't have an account?!?</p>
+    <a href="/auth/register" class="button margin">Register Here!</a>
   </form>
 </div>
 
-<% include ../partials/end %>
+<% include ../partials/footer%>
+<% include ../partials/end%>

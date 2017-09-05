@@ -1,10 +1,12 @@
 <% include ../partials/boilerplate %>
 <% include ../partials/nav %>
 
-
+<h1 class="indexHeaderCopy">Show Comments:</h1>
 <% comments.forEach(function(comments){ %>
   <div class="comments" id="comments">
+    <hr>
     <p><%=comments.comment%></p>
+    <hr>
   </div>
 <% }) %>
 
